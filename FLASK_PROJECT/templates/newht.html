@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>try</title>
+</head>
+<body>
+<form action="/save",METHOD ="POST">
+    ID<input type="text" name="id"><br><br>
+    name<input type="text" name="name"><br><br>
+    <input type="submit">
+</form>
+
+<table border="1">
+    <thead>
+    <th>id</th><th>name</th><th>address</th>
+    </thead>
+    {%for emp in empo%}
+    <tr><td>emp.id
+    </td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.address}}</td>
+    </tr>
+    {%endfor%}
+</table>
+</body>
+</html>
+
+@app.route('/save',method = ['POST']

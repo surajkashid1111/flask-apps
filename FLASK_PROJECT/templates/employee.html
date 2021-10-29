@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EmpInformation</title>
+</head>
+<body>
+<h1>Employee registration page</h1>
+{{resp}}
+<form action="/save" METHOD="post">                                         <!  when we click here it will send the information to the flask controller where we write the path>
+    EMP ID :<input type ="text" name ="id" value=""> <br><br>             <! if value is given for input function means if not enter any thing then default value is came.>
+    EMP Name :<input type ="text" name ="name" value=""> <br><br>           <! we can also able to give id to backend input.>
+    EMP Gender : <input type ="radio" name ="gender" value="M">Male
+                 <input type ="radio" name ="gender" value="F">Female
+                <br><br>
+    EMP Role:<select name = "roles">
+    <option value="NONE">--select--</option>
+    <option value="SE">Software Engineer</option>
+    <option value="SSE">senoir software engineer</option>
+    <option value="TL">team lead</option>
+    <option value="MNG">manager</option>
+    <option value="NONE">project manager </option>
+</select><br><br>
+    EMP Address :<textarea rows="4" cols="50" name="address"></textarea> <br><br>
+    EMP Skills :
+    <input type ="checkbox" name ="skills" value="py">python  <!only value give will take as input in the backend>
+    <input type ="checkbox" name ="skills" value="DS">datascience
+    <input type ="checkbox" name ="skills" value="JD">java
+    <input type ="checkbox" name ="skills" value="DB">Database    <!check box we can choose multiple option >
+
+    <input type ="checkbox" name ="skills" value="DO">dev-ops
+    <input type ="checkbox" name ="skills" value="SPS">spring
+    <br><br>
+    EMP Salary :<input type ="text" name ="salary" value=""> <br><br>
+    EMP Exp :<select name="exp">
+    <option value="0">Select</option>
+    <option value="1">0-3 years</option>
+    <option value="2">3-6 years</option>
+    <option value="3">6-9 years</option>
+    <option value="4">9-12 years</option>
+    <option value="5">12-15 years</option>
+    <option value="6">15+ years</option>
+
+</select> <br><br>
+    EMP Contact :<input type ="text" name ="mobile" value=""> <br><br>
+    <input type="submit">
+
+</form>
+
+<table border="1">
+    <thead>
+    <th>EMPID</th><th>EmpName</th><th>Emp Mobile</th>
+    </thead>
+    <tbody>
+    {% for emp in emplist %}
+
+    <tr>
+
+    <td>{{emp.id}}</td>
+    <td>{{emp.name}}</td>
+    <td>{{emp.mobile}}</td>
+
+    </tr>
+    {%endfor%}
+    </tbody>
+
+</table>
+</body>
+</html>
